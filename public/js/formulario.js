@@ -1,6 +1,18 @@
-const lista= "http://localhost:3031/api/movies/1" 
+
 window.onload = () => {
 
+   /*  for (let i=0;i<100;i++){ */
+    // Obtener la parte de la ruta de la URL
+const path = window.location.pathname;
+
+// Remover "/detail/" de la ruta y obtener el ID de la película
+const id = path.replace('/detail/', '');
+
+console.log(id); // Imprimirá "2"
+console.log(path)
+    
+    const lista= "http://localhost:3031/api/movies/"+id
+  /*   if(i==id){ */
     fetch(lista)
 .then(response=>{
  return response.json()
@@ -20,7 +32,16 @@ window.onload = () => {
     duracion.value=data.length
   
 })
-    }
+
+    /* } */
+
+        }
+    /* } */
+    
+  /*   for( let i=0;i<lista)
+ */
+
+    
 
 
 
