@@ -1,4 +1,9 @@
+const lista= "http://localhost:3031/api/movies/" 
+
+
 window.onload = () => {
+
+
   const app = document.getElementById("root");
   const container = document.createElement("div");
   container.setAttribute("class", "container");
@@ -8,8 +13,16 @@ window.onload = () => {
 
 
 
-  /** Codigo que debemos usar para mostrar los datos en el frontend
-    let data = peliculas.data;
+fetch(lista)
+.then(response=>{
+  if(!response){
+    console.log("error")
+  }
+ return response.json()
+})
+.then(peliculas=>{
+  console.log(peliculas)
+  let data = peliculas.data;
 
     data.forEach((movie) => {
       const card = document.createElement("div");
@@ -34,5 +47,7 @@ window.onload = () => {
       }
       card.appendChild(duracion);
     });
-  */
+})
+  /** Codigo que debemos usar para mostrar los datos en el frontend */
+  
 };

@@ -5,7 +5,7 @@ const cors = require("cors");
 var corsOptions = {
   origin: "*"
 };
-
+app.use(express.json())
 app.use(cors(corsOptions));
 let allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
@@ -34,10 +34,15 @@ const apiGenresRouter = require('./routes/api/genres')
 //Aquí llamo a la ruta de las api de actors
 const apiActorsRouter = require('./routes/api/actors')
 
+const moviesRoutes=require("./routes/moviesRoutes")
+
+
 
 app.use(express.static(path.resolve(__dirname, '../public')));
+app.set('views', path.resolve(__dirname, './views'));
+app.set('view engine', 'ejs');
 
-
+app.use('/',moviesRoutes);
 //Aquí creo la colección de mis recursos de movies (APIs)
 app.use('/api/movies',apiMoviesRouter);
 app.use('/api/actors',apiActorsRouter);
