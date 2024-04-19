@@ -46,6 +46,22 @@ fetch(lista)
         card.appendChild(genero);
       }
       card.appendChild(duracion);
+
+
+
+
+      //////////////////////////////////tuve que ponerle una estrellita hecha por chatGPT, porque no habia NINGUNA ESTRELLITA///////////
+
+
+
+      
+      // Crear el elemento para la estrella de favoritos
+const favorito = document.createElement("span");
+favorito.innerHTML = "&#9733;"; // Código HTML de una estrella sólida
+favorito.classList.add("favorito"); // Agregar una clase para darle estilo con CSS
+
+// Agregar la estrella de favoritos a la tarjeta de película
+card.appendChild(favorito);
     });
 })
   /** Codigo que debemos usar para mostrar los datos en el frontend */
