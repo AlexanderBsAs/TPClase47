@@ -35,7 +35,7 @@ let form=document.querySelector(".card .formulario")
 
   })  
       let editar= document.querySelector(".botonModificar")
-  editar.addEventListener("click",(e)=>{
+  editar.addEventListener("click",(event)=>{
     const edit= "http://localhost:3031/api/movies/update/"+id
     let datos={
         title:title.value,
@@ -59,6 +59,7 @@ let form=document.querySelector(".card .formulario")
         return resultado.json()
     })
     .catch(e=>{
+        event.preventDefault()
         console.log(e)
     })
     .then(resultado=>{
@@ -66,11 +67,47 @@ let form=document.querySelector(".card .formulario")
         window.location.reload()
     })
     .catch(e=>{
+        event.preventDefault()
         console.log("error: "+ e)
     })
 
 })
+const create= "http://localhost:3031/api/movies/create"
 
+let agregar=document.querySelector(".botonAgregar")
+
+agregar.addEventListener("click",(e)=>{
+    let datosCrear={
+        title:title.value,
+        rating:rating.value,
+        awards:awards.value,
+        release_date:releaseDate.value,
+        length:duracion.value
+    }
+    fetch(create,
+        {
+            method:"POST",
+               headers: {
+                "Content-Type": "application/json"
+            },
+            body:JSON.stringify(datosCrear)
+         }
+ )
+
+.then(resultado=>{
+    return resultado.json()
+})
+.catch(e=>{
+    console.log("error: "+e)
+})
+.then(terminado=>{
+    alert("se creo la pelicula")
+    window.location.reload()
+})
+.catch(e=>{
+    console.log("error: "+e)
+})
+})
     /* } */
 
         }
