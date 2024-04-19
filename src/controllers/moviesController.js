@@ -79,7 +79,10 @@ const moviesAPIController = {
             res.json(respuesta);
         })    
         .catch(error => res.send(error))
-    }
+    },
+    update: (req,res) => {
+      res.render("formulario")
+    },
     
 }
 
