@@ -18,6 +18,9 @@ const moviesAPIController = {
     'detail': (req, res) => {
     res.render("formulario")
     },
+    favoritos:(req,res)=>{
+        res.render("favoritas")
+    },
     'recomended': (req, res) => {
         db.Movie.findAll({
             include: ['genre'],

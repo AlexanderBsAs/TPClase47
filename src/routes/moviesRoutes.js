@@ -4,4 +4,5 @@ const moviesController = require('../controllers/moviesController');
 
 router.get("/", moviesController.list)
 router.get("/detail/:id",moviesController.detail)
+router.get("/favorites", moviesController.favoritos)
 module.exports=router
